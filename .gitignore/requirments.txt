@@ -1,0 +1,10 @@
+tensorflow
+tensorflow-hub
+kafka-python
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+datasets  # huggingface datasets
+jupyter
