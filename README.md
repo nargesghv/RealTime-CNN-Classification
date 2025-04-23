@@ -1,16 +1,26 @@
-# 🚀 Real-Time CNN Classification with Kafka & TensorFlow
+# 🚀 Real-Time CNN Classification with Kafka, TensorFlow & FastAPI
 
-Built a deep learning pipeline for real-time multi-class image classification, integrating TensorFlow CNNs with Kafka streaming and training on Hugging Face open datasets.
+This project builds a real-time multi-class image classification pipeline using:
+
+- **TensorFlow CNN** trained on **Hugging Face Food-101** dataset
+- **Apache Kafka** for real-time streaming from a live webcam
+- **FastAPI** for serving the model as a REST API
+- **Docker** for clean, portable deployment
 
 ---
 
 ## 🧾 About the Project
 
-**Goal**: Build an end-to-end deep learning system that can classify images in real-time as they stream through Kafka.
+**Goal:**  
+Train a CNN model on a high-quality image dataset (Food-101), then deploy it for real-time image classification using a live camera stream via Kafka.
 
-- Live image feed (e.g., webcam) → Kafka → CNN → FastAPI → Response
-- CNN trained on Hugging Face **Food-101** dataset
-- Real-time predictions via REST API
+**Pipeline Overview:**
+[Webcam] → [Kafka Producer] → [Kafka Topic] → [Kafka Consumer] → [CNN Model] → [Prediction Output]
+
+
+- Live image feed from webcam is streamed through Kafka.
+- Pre-trained TensorFlow model classifies the incoming images.
+- Predictions are returned via terminal or FastAPI endpoint.
 
 ---
 
@@ -22,20 +32,23 @@ RealTime-CNN-Classification/ ├── Data/ # Raw data if needed ├── Kafk
 
 ## 🛠️ Tech Stack
 
-| Tool/Framework | Purpose |
-|----------------|---------|
-| TensorFlow/Keras | Deep learning model training |
-| Kafka (kafka-python) | Real-time data ingestion |
-| Hugging Face Datasets | Open-source datasets |
-| Python | Scripting and automation |
-| Matplotlib / Seaborn | Visualization |
-| Jupyter Notebook | Experimentation |
+| Tool/Framework      | Purpose                           |
+|---------------------|------------------------------------|
+| **TensorFlow/Keras**| Deep learning model training       |
+| **Kafka (kafka-python)** | Real-time image streaming    |
+| **Hugging Face Datasets** | Food-101 open dataset       |
+| **FastAPI**         | Lightweight REST API for inference |
+| **OpenCV**          | Image processing and camera input  |
+| **Docker**          | Containerization                   |
+| **Jupyter Notebook**| Research and training              |
+| **Python**          | Core scripting and automation      |
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/YOUR_USERNAME/RealTime-CNN-Classification.git
 cd RealTime-CNN-Classification
@@ -55,23 +68,30 @@ zookeeper-server-start.sh config/zookeeper.properties
 kafka-server-start.sh config/server.properties
 
 ```
+
+## 🧠 Model Training (Food-101)
+Open the notebook:
+```bash
+Notebooks/model_training.ipynb
+```
+Loads Food-101 dataset via Hugging Face
+
+Preprocesses and trains a custom CNN architecture
+
+Saves trained model to Models/saved_model/
+
 ### 4. Stream images from webcam
 ```bash
 python Kafka/producer_camera.py
 ```
 and
 
-### 5. Batch inference with TensorFlow model:
+### 5. Start Batch Consumer with CNN Model
 ```bash
 python Kafka/consumer_batch_predict.py
 
 ```
-### 6. Model training
-```bash
-# Run notebook
-Notebooks/model_training.ipynb
-```
-CNN trained on Food-101 (101 classes) and Model saved to Models/saved_model/
+---
 
 ## 🌐 Deployment with FastAPI
 
@@ -103,11 +123,8 @@ Let me know if you want a version that includes **Docker Compose**, or if you'd 
 ## 🧱 Architecture
 
 ```text
-[Kafka Producer (Webcam/Files)] 
-          ↓
-     [Kafka Topic]
-          ↓
-[Kafka Consumer → TensorFlow CNN]
-          ↓
-[Prediction Output (Terminal or API)]
+[Kafka Producer (Webcam/Files)] ↓ [Kafka Topic] ↓ [Kafka Consumer → TensorFlow CNN] ↓ [Prediction Output (Terminal or FastAPI)]
+```
 
+👩‍💻 Author
+Narges
