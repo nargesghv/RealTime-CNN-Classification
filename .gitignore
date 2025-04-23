@@ -1,0 +1,49 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment / virtualenv
+.env
+.venv
+ENV/
+env/
+*.egg-info/
+
+# Model files
+*.h5
+*.pb
+*.tflite
+*.joblib
+*.pkl
+*.ckpt
+Models/saved_model/
+*.savedmodel
+
+# System-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Kafka/Streaming logs or temp files
+kafka-logs/
+zookeeper-logs/
+*.log
+
+# VS Code settings
+.vscode/
+
+# Docker
+__pycache__/
+*.py[cod]
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Other
+*.bak
+*.tmp
+*.swp

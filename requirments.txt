@@ -8,3 +8,6 @@ seaborn
 scikit-learn
 datasets  # huggingface datasets
 jupyter
+opencv-python
+fastapi
+uvicorn
