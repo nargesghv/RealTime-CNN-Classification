@@ -4,24 +4,6 @@ Built a deep learning pipeline for real-time multi-class image classification, i
 
 ---
 
-## 📚 Table of Contents
-- [About the Project](#about-the-project)
-- [Project Structure](#project-structure)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Kafka Setup](#kafka-setup)
-- [Model Training](#model-training)
-- [Results](#results)
-- [Future Work](#future-work)
-- [Acknowledgements](#acknowledgements)
-- [Author](#author)
-
----
-
-## 📖 About the Project
-
----
-
 ## 🧾 About the Project
 
 **Goal**: Build an end-to-end deep learning system that can classify images in real-time as they stream through Kafka.
@@ -32,33 +14,9 @@ Built a deep learning pipeline for real-time multi-class image classification, i
 
 ---
 
-**Key Highlights:**
+## 📂 Project Structure
 
----
-RealTime-CNN-Classification/
-├── Data/                         # Raw data if needed
-├── Kafka/
-│   ├── producer.py              # Basic file producer
-│   ├── producer_camera.py       # Live webcam → Kafka
-│   ├── consumer.py              # Basic receiver
-│   ├── consumer_batch_predict.py # Batch prediction w/ CNN
-├── Models/
-│   └── saved_model/             # Trained TF model
-├── Notebooks/
-│   ├── data_preprocessing.ipynb
-│   ├── model_training.ipynb
-│   └── kafka_integration.ipynb
-├── deployment/
-│   ├── main.py                  # FastAPI app
-│   ├── model_loader.py          # Load & infer from CNN
-│   ├── Dockerfile               # Docker support
-├── visualizations/
-│   ├── accuracy_loss_plot.png
-│   └── confusion_matrix.png
-├── .gitignore
-├── requirements.txt
-├── README.md
-└── LICENSE (optional)
+RealTime-CNN-Classification/ ├── Data/ # Raw data if needed ├── Kafka/ │ ├── producer.py # Basic file producer │ ├── producer_camera.py # Live webcam → Kafka │ ├── consumer.py # Basic receiver │ ├── consumer_batch_predict.py # Batch prediction w/ CNN ├── Models/ │ └── saved_model/ # Trained TF model ├── Notebooks/ │ ├── data_preprocessing.ipynb │ ├── model_training.ipynb │ └── kafka_integration.ipynb ├── deployment/ │ ├── main.py # FastAPI app │ ├── model_loader.py # Load & infer from CNN │ ├── Dockerfile # Docker support ├── visualizations/ │ ├── accuracy_loss_plot.png │ └── confusion_matrix.png ├── .gitignore ├── requirements.txt ├── README.md └── LICENSE (optional)
 
 ---
 
